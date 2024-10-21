@@ -1,0 +1,27 @@
+services:
+  python:
+    image: local/mulecode/fastapi:latest
+    build: .
+    working_dir: /opt/app
+    volumes:
+      - .:/opt/app
+    entrypoint: [ "python" ]
+    command: [ "--version" ]
+    environment:
+      - PYTHONPATH=$PWD:/opt/app/python
+  fastapi:
+    image: local/mulecode/fastapi:latest
+    build: .
+    entrypoint: [ "python", "-m", "fastapi", "run", "/opt/app/python/main.py", "--host", "0.0.0.0" ]
+    command: [ "--port", "8080" ]
+    ports:
+      - "8080:8080"
+  fastapi-dev:
+    image: local/mulecode/fastapi-dev:latest
+    build: .
+    volumes:
+      - .:/opt/app
+    entrypoint: [ "python", "-m", "fastapi", "dev", "/opt/app/python/main.py", "--host", "0.0.0.0" ]
+    command: [ "--port", "8080", "--reload" ]
+    ports:
+      - "8080:8080"

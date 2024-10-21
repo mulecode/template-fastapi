@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "template-fastapi"
+version = "1.0.0"
+description = "Simple webservice with python and fastapi"
+dependencies = [
+    "requests==2.31.0",
+    "fastapi[standard]==0.115.2",
+    "httpx==0.27.2",
+    "trio==0.27.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "black==24.10.0",
+    "pylint==3.2.6",
+    "pytest==8.3.2",
+    "pytest-mock==3.14.0",
+    "pytest-cov==5.0.0",
+    "pytest-bdd==7.2.0",
+    "pytest-trio==0.8.0",
+    "mock==5.1.0",
+    "faker==26.3.0",
+    "requests-mock==1.12.1",
+    "moto[all]==5.0.12",
+    "time-machine==2.15.0",
+]
+
+[tool.pylint]
+# You can add pylint specific configurations here if needed
+
+[tool.pytest.ini_options]
+# pytest configuration options can be added here
+
+[tool.pytest]
+# Adding plugins to pytest
+addopts = "--cov=bdd-test"
+
+
