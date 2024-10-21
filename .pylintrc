@@ -1,0 +1,43 @@
+[MASTER]
+disable=
+     W0511, # TODOs
+     W1203, # Use lazy % formatting in logging functions
+     R0913, # Too many arguments
+     R0801, # Similar lines
+     R0916, # Too many boolean expressions in if statement
+     W0718, # Catching too general exception Exception (broad-exception-caught)
+     C0415, # Import outside toplevel - Required for making DD optional
+     W0613, # Unused argument
+
+## init hook to fix module loading. eg.: E0401: Unable to import
+## init-hook='import sys; sys.path.append("python/");'
+
+[FORMAT]
+max-line-length=240
+
+[DESIGN]
+# Minimum number of public methods for a class (see R0903).
+min-public-methods=1
+
+[LOGGING]
+logging-format-style=new
+logging-modules=logging
+
+[BASIC]
+# Naming style matching correct argument names.
+argument-naming-style=snake_case
+
+# Naming style matching correct attribute names.
+attr-naming-style=snake_case
+
+# Naming style matching correct class names.
+class-naming-style=PascalCase
+
+# Naming style matching correct constant names.
+const-naming-style=UPPER_CASE
+
+# Naming style matching correct function names.
+function-naming-style=snake_case
+
+# Naming style matching correct method names.
+method-naming-style=snake_case
